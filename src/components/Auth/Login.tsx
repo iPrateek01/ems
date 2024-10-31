@@ -11,12 +11,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useState } from "react"
 
-export default function LoginForm() {
+export default function Login({handleLogin}) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    handleLogin(email, password)
     // console.log("hello")
 
   }
