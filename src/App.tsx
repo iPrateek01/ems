@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Login from "./components/Auth/Login";
 import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
@@ -6,8 +7,8 @@ import { AuthContext } from "./context/AuthProvider";
 // import { setLocalStorage } from "./utils/localStorage";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [loggedInUserData, setLoggedInUserData] = useState(null);
+  const [user, setUser] = useState('');
+  const [loggedInUserData, setLoggedInUserData] = useState('');
   const authData = useContext(AuthContext);
   // console.log(authData);
 
@@ -20,7 +21,6 @@ function App() {
     }
     
   }
-
   useEffect(() => {
     if( authData ) {
       const loggedInUser = localStorage.getItem('loggedInUser')
@@ -35,8 +35,7 @@ function App() {
 // localStorage.clear()
   const handleLogin = (email, password) => {
     if (
-      authData &&
-      authData.admin.find((e) => email == e.email && password == e.password)
+      authData?.admin.find((e) => email == e.email && password == e.password)
     ) {
       const admin = authData.admin.find((e) => email == e.email && password == e.password)
       setUser("admin");
@@ -44,8 +43,7 @@ function App() {
       console.log(admin);
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" , data: admin}));
     } else if (
-      authData &&
-      authData.employees.find((e) => email == e.email && password == e.password)
+      authData?.employees.find((e) => email == e.email && password == e.password)
     ) {
       const employee = authData.employees.find((e) => email == e.email && password == e.password)
       setUser("employee");

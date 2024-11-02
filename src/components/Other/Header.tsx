@@ -1,5 +1,5 @@
-import React from 'react'
-import { handler } from 'tailwindcss-animate'
+// import React from 'react'
+// import { handler } from 'tailwindcss-animate'
 
 function Header({data, handleLogOut}) {
 

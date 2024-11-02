@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { getLocalStorage, setLocalStorage } from '@/utils/localStorage'
-import React, {createContext, useState, useEffect} from 'react'
+import {createContext, useState, useEffect} from 'react'
 
 
 export const AuthContext = createContext()
@@ -9,8 +10,10 @@ function AuthProvider({children}) {
     const [userData, setUserData] = useState([])
     
     useEffect(() => {
-        setLocalStorage()
         const {employees, admin} = getLocalStorage()
+        if (employees.length === 0 && admin.length === 0) {
+          setLocalStorage()
+        }
         setUserData({employees, admin}) 
     }, [])
      

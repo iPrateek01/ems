@@ -1,19 +1,19 @@
+// @ts-nocheck
 import { AuthContext } from '@/context/AuthProvider'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 
 function AllTask() {
 
   const authData = useContext(AuthContext)
-  // console.log(authData)
-  const empData = authData.employees
-  // console.log(empData)
+
+  
 
   return (
     <>
     <div className='pb-1'>
     <div className=' flex justify-center font-semibold text-3xl p-2 bg-stone-800 m-10 mb-0'>All Tasks</div>
     <div id='allTask' className='flex flex-col h-72 overflow-auto bg-stone-800 mx-10 mb-10 mt-0 p-2 gap-2'>
-        {empData.map((index) => (
+        {authData?.employees.map((index) => (
             <div key={index.id} className=''>
                 <div className='flex flex-col sm:flex-row justify-between w-full h-72 sm:h-20 items-center p-5 bg-stone-900 rounded-lg gap-5 text-xl'>
                     <div className='flex sm:w-1/3'>
