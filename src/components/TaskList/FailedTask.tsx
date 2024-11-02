@@ -4,7 +4,7 @@ function FailedTask({data}) {
   return (
     <>
     {data.tasks.filter((task) => task.failed ).map((index) => (
-          <div key={index.task_title} className='flex-shrink-0 flex flex-col justify-start items-center w-11/12 sm:w-9/12 md:w-4/12 h-80 p-5 rounded-md bg-gray-800 gap-7 text-center'>
+          <div key={index.task_title} className='flex-shrink-0 flex flex-col justify-start items-center w-11/12 sm:w-9/12 md:w-4/12 h-80 p-5 rounded-md bg-orange-600 gap-7 text-center'>
             <div className='flex flex-row flex-1 w-full justify-between items-center'>
               <h1 className='p-2 bg-indigo-800 rounded-sm'>{index.category}</h1>
               <h1>{index.task_date}</h1>
@@ -14,9 +14,9 @@ function FailedTask({data}) {
             <p>{index.task_description}</p>
             </div>
             <div className='flex flex-row flex-1 w-full justify-center items-center'>
-                <button className='bg-red-600 rounded-sm p-4 text-xl'>
+                {/* <button className='bg-red-600 rounded-sm p-4 text-xl'>
                     Failed
-                </button>
+                </button> */}
             </div>
           </div>
         ))}
